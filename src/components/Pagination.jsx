@@ -1,36 +1,23 @@
-/**
- * Pagination Component - Handles navigation between pages of products
- */
-
 import React from 'react';
 import { useProduct } from '../context/ProductContext';
 import '../styles/Pagination.css';
 
-/**
- * Pagination - Allows users to navigate between pages of products
- */
 const Pagination = () => {
   const { currentPage, totalPages, handlePageChange } = useProduct();
 
-  // Hide pagination if only one page
   if (totalPages <= 1) {
     return null;
   }
 
-  /**
-   * Generate array of page numbers to display
-   */
   const getPageNumbers = () => {
     const pages = [];
     const maxVisible = 5;
 
     if (totalPages <= maxVisible) {
-      // Show all pages if less than max
       for (let i = 1; i <= totalPages; i++) {
         pages.push(i);
       }
     } else {
-      // Show first, last, and pages around current
       const half = Math.floor(maxVisible / 2);
       let start = Math.max(1, currentPage - half);
       let end = Math.min(totalPages, start + maxVisible - 1);

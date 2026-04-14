@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Product Dashboard - Modern React Application
 
 A clean, production-ready React dashboard for browsing and filtering products from a mock API. Built with modern best practices, responsive design, and comprehensive features.
@@ -313,3 +314,6 @@ For issues or questions, please refer to the component documentation in code com
 ---
 
 **Built with ❤️ using React | Modern & Production-Ready**
+=======
+# Task-1-API-Listing-Dashboard-
+>>>>>>> 9791708d5e287c30fa346aee9fa2102670969f25

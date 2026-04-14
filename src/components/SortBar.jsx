@@ -1,15 +1,7 @@
-/**
- * SortBar Component - Provides sorting options for products
- * Allows sorting by name (alphabetical) and price (ascending/descending)
- */
-
 import React from 'react';
 import { useProduct } from '../context/ProductContext';
 import '../styles/SortBar.css';
 
-/**
- * SortBar - Allows users to sort products by different criteria
- */
 const SortBar = () => {
   const { sortBy, handleSort, filteredAndSortedProducts } = useProduct();
 
