@@ -1,15 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useProduct } from '../context/ProductContext';
+import { useCart } from '../context/CartContext';
 import Card from './Card';
 import SearchBar from './SearchBar';
 import SortBar from './SortBar';
 import Loader from './Loader';
 import ErrorMessage from './ErrorMessage';
 import Pagination from './Pagination';
+import Modal from './Modal';
 import '../styles/Dashboard.css';
 
 const Dashboard = () => {
-  const { loading, error, paginatedProducts, filteredAndSortedProducts } = useProduct();
+  const { loading, error, paginatedProducts, filteredAndSortedProducts } =
+    useProduct();
+  const { addToCart } = useCart();
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [toast, setToast] = useState(null);
+
+  const handleViewDetails = (product) => {
+    setSelectedProduct(product);
+    setIsModalOpen(true);
+  };
+
+  const handleAddToCart = () => {
+    if (selectedProduct) {
+      addToCart(selectedProduct);
+      setToast({
+        message: `${selectedProduct.title} added to cart!`,
+        type: 'success',
+      });
+      setTimeout(() => setToast(null), 3000);
+      setIsModalOpen(false);
+    }
+  };
+
+  const handleCardAddToCart = (product) => {
+    addToCart(product);
+    setToast({
+      message: `${product.title} added to cart!`,
+      type: 'success',
+    });
+    setTimeout(() => setToast(null), 3000);
+  };
 
   const handleRetry = () => {
     window.location.reload();
@@ -39,7 +72,9 @@ const Dashboard = () => {
     <div className="dashboard">
       <div className="dashboard-header">
         <h1 className="dashboard-title">Product Catalog</h1>
-        <p className="dashboard-subtitle">Browse our collection of quality products</p>
+        <p className="dashboard-subtitle">
+          Browse our collection of quality products
+        </p>
       </div>
 
       <SearchBar />
@@ -55,11 +90,26 @@ const Dashboard = () => {
             price={product.price}
             description={product.description}
             category={product.category}
+            onViewDetails={handleViewDetails}
+            onAddToCart={handleCardAddToCart}
           />
         ))}
       </div>
 
       <Pagination />
+
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        product={selectedProduct}
+        onAddToCart={handleAddToCart}
+      />
+
+      {toast && (
+        <div className={`toast toast-${toast.type}`}>
+          <span>{toast.message}</span>
+        </div>
+      )}
     </div>
   );
 };

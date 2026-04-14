@@ -1,7 +1,25 @@
 import React from 'react';
 import '../styles/Card.css';
 
-const Card = ({ id, title, image, price, description, category }) => {
+const Card = ({
+  id,
+  title,
+  image,
+  price,
+  description,
+  category,
+  onViewDetails,
+  onAddToCart,
+}) => {
+  const product = {
+    id,
+    title,
+    image,
+    price,
+    description,
+    category,
+  };
+
   return (
     <div className="product-card">
       {category && (
@@ -32,9 +50,20 @@ const Card = ({ id, title, image, price, description, category }) => {
 
         <p className="card-description">{description}</p>
 
-        <button className="card-button" onClick={() => alert(`Added ${title} to cart!`)}>
-          View Details
-        </button>
+        <div className="card-actions">
+          <button
+            className="btn-view-details"
+            onClick={() => onViewDetails(product)}
+          >
+            View Details
+          </button>
+          <button
+            className="btn-add-to-cart"
+            onClick={() => onAddToCart(product)}
+          >
+            Add to Cart
+          </button>
+        </div>
       </div>
     </div>
   );

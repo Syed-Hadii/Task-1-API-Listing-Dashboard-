@@ -2,6 +2,7 @@
   max-width: 1400px;
   margin: 0 auto;
   padding: 40px 20px;
+  flex: 1;
 }
 
 .dashboard-header {
@@ -12,13 +13,17 @@
 .dashboard-title {
   font-size: 36px;
   font-weight: 700;
-  color: #1f2937;
+  color: #fff;
   margin: 0 0 8px 0;
+  background: linear-gradient(135deg, #ffffff 0%, #d0d0d0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .dashboard-subtitle {
   font-size: 16px;
-  color: #6b7280;
+  color: #b0b0b0;
   margin: 0;
 }
 
@@ -48,16 +53,16 @@
 
 .empty-state h2 {
   font-size: 24px;
-  color: #1f2937;
+  color: #fff;
   margin: 0 0 8px 0;
 }
 
 .empty-state p {
   font-size: 16px;
-  color: #6b7280;
+  color: #b0b0b0;
   margin: 0;
 }
-/* Responsive Grid */
+
 @media (max-width: 1024px) {
   .dashboard-grid {
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));

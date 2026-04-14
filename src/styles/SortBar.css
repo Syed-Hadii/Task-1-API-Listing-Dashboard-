@@ -16,7 +16,7 @@
 .sort-label {
   font-size: 14px;
   font-weight: 500;
-  color: #6b7280;
+  color: #b0b0b0;
   white-space: nowrap;
 }
 
@@ -29,37 +29,39 @@
 .sort-select {
   padding: 10px 12px;
   font-size: 14px;
-  border: 1px solid #d1d5db;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 6px;
-  background: #ffffff;
-  color: #1f2937;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
   cursor: pointer;
   font-family: inherit;
   font-weight: 500;
+  transition: all 0.2s ease;
 }
 
 .sort-select:hover {
-  border-color: #9ca3af;
+  border-color: rgba(102, 126, 234, 0.5);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .sort-select:focus {
   outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  border-color: #667eea;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
 }
 
 .sort-select option {
-  background: #ffffff;
-  color: #1f2937;
+  background: #1a1a1a;
+  color: #fff;
   padding: 10px;
 }
 
 .sort-info .sort-label {
   font-weight: 600;
-  color: #2563eb;
+  color: #667eea;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .sort-bar-container {
     flex-direction: column;
