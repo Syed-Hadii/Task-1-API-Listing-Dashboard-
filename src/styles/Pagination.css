@@ -1,0 +1,153 @@
+/**
+ * Pagination Component Styles
+ * Controls for navigating between pages
+ */
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 40px;
+  padding: 20px 0;
+  flex-wrap: wrap;
+  animation: fadeIn 0.5s ease;
+}
+
+/* Pagination Buttons */
+.pagination-button {
+  padding: 10px 14px;
+  background: #f5f5f5;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  color: #667eea;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.pagination-button:hover:not(:disabled) {
+  background: #667eea;
+  color: white;
+  border-color: #667eea;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.pagination-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.pagination-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Page Numbers Container */
+.pagination-numbers {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Page Number Buttons */
+.pagination-number {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: #f5f5f5;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  color: #667eea;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dots */
+.pagination-number.dots {
+  cursor: default;
+  background: transparent;
+  border: none;
+  color: #999;
+}
+
+.pagination-number.dots:hover {
+  background: transparent;
+  border: none;
+  transform: none;
+}
+
+/* Active Page */
+.pagination-number.active {
+  background: #667eea;
+  border-color: #667eea;
+  color: white;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* Hover State */
+.pagination-number:hover:not(.active):not(.dots) {
+  background: #e8e8ff;
+  border-color: #667eea;
+  transform: translateY(-2px);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pagination-container {
+    gap: 8px;
+    margin-top: 30px;
+  }
+
+  .pagination-button {
+    padding: 9px 12px;
+    font-size: 13px;
+  }
+
+  .pagination-number {
+    width: 36px;
+    height: 36px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pagination-container {
+    gap: 6px;
+    margin-top: 24px;
+  }
+
+  .pagination-button {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .pagination-number {
+    width: 32px;
+    height: 32px;
+    font-size: 11px;
+  }
+
+  /* Hide dots on small screens */
+  .pagination-number.dots {
+    display: none;
+  }
+}

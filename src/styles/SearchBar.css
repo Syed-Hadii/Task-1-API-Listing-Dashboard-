@@ -1,0 +1,103 @@
+/**
+ * SearchBar Component Styles
+ * Modern search input with clear button and smooth animations
+ */
+
+.search-bar-container {
+  margin-bottom: 30px;
+  animation: slideDown 0.5s ease;
+}
+
+.search-input-wrapper {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Search Input */
+.search-input {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  background: #ffffff;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.search-input:hover {
+  border-color: #667eea;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.25);
+  background: #f8f9ff;
+}
+
+/* Placeholder */
+.search-input::placeholder {
+  color: #999;
+}
+
+/* Clear Button */
+.search-clear-button {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #999;
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-clear-button:hover {
+  color: #667eea;
+  transform: translateY(-50%) scale(1.2);
+}
+
+/* Animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .search-input {
+    font-size: 14px;
+    padding: 12px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-bar-container {
+    margin-bottom: 20px;
+  }
+
+  .search-input {
+    font-size: 14px;
+    padding: 11px 12px;
+  }
+
+  .search-clear-button {
+    font-size: 16px;
+    right: 8px;
+  }
+}
